@@ -20,7 +20,6 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('initialize' , [\App\Http\Controllers\InitializeController::class , 'init']);
     Route::resources([
         'users'=>\App\Http\Controllers\UserController::class,
-        'medicaments'=>\App\Http\Controllers\MedicamentController::class,
         'pharmacies'=>\App\Http\Controllers\PharmacyController::class
     ]);
 });
