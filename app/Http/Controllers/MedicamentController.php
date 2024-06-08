@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models\Medicament;
 use Illuminate\Http\Request;
 
-class EventController extends Controller
+class MedicamentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $atts = Event::all();
-        return response()->json(['atts' => $atts]);
+        $medicaments = Medicament::all();
+        return response()->json(['medicaments'=>$medicaments]);
     }
 
     /**
@@ -29,15 +29,14 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-
-        $newAtts = Event::create($request->post());
-        return response()->json(['event' => $newAtts]);
+        $newMed = Medicament::create($request->post());
+        return response()->json(['medicament' => $newMed]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Event $event)
+    public function show(Medicament $medicament)
     {
         //
     }
@@ -45,7 +44,7 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Event $event)
+    public function edit(Medicament $medicament)
     {
         //
     }
@@ -53,22 +52,22 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, Medicament $medicament)
     {
         $fillable = $request->post();
-        $event->fill($fillable);
+        $medicament->fill($fillable);
 
-        $event->save();
+        $medicament->save();
 
-        return response()->json(['event' => $event]);
+        return response()->json(['medicament'=>$medicament]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Event $event)
+    public function destroy(Medicament $medicament)
     {
-        $event->delete();
+        $medicament->delete();
 
         return response()->json(true);
     }

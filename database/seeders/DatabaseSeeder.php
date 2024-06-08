@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Event;
 use App\Models\Pharmacy;
 use App\Models\Role;
 use App\Models\User;
@@ -19,15 +20,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Role::create([
-            'name' => 'admin',
+            'name' => 'engaged',
 
         ]);
 
        User::create([
-          'name'=>'admin',
-           'email'=>'admin@admin.com',
-           'password'=>Hash::make('admin'),
-           'role_id'=>1
+          'name'=>'engaged',
+           'email'=>'engaged@engaged.com',
+           'password'=>Hash::make('engaged'),
+           'role_id'=>2
        ]);
 
         // \App\Models\User::factory(10)->create();
@@ -86,7 +87,6 @@ class DatabaseSeeder extends Seeder
         //         'updated_at' => now(),
         //     ],
         // ]);
-        Pharmacy::factory(15)->create();
-
+//        Pharmacy::factory(15)->create();
     }
 }
