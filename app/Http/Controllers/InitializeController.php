@@ -7,6 +7,7 @@ use App\Models\Pharmacy;
 use App\Models\table1;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PHPUnit\Event\Event;
 
 class InitializeController extends Controller
 {
@@ -15,7 +16,8 @@ class InitializeController extends Controller
         $pharmacies = Pharmacy::all();
         $users = User::all();
         $medicaments = Medicament::all();
-        return response()->json(['pharmacies' => $pharmacies, 'users' => $users , 'medicaments' =>$medicaments]);
+        $events = \App\Models\Event::all();
+        return response()->json(['events'=>$events ,'pharmacies' => $pharmacies, 'users' => $users , 'medicaments' =>$medicaments]);
 
     }
 }

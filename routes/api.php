@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group( function () {
   Route::get('/me' , [\App\Http\Controllers\UserController::class , 'init']);
     Route::get('initialize' , [\App\Http\Controllers\InitializeController::class , 'init']);
+    Route::put('/event/valid/{event}' , [\App\Http\Controllers\EventController::class , 'validat']);
     Route::resources([
         'users'=>\App\Http\Controllers\UserController::class,
         'pharmacies'=>\App\Http\Controllers\PharmacyController::class,
-        'medicament'=>\App\Http\Controllers\MedicamentController::class,
+        'medicaments'=>\App\Http\Controllers\MedicamentController::class,
         'events'=>\App\Http\Controllers\EventController::class
     ]);
 });
-
 
 Route::post('/login' , [\App\Http\Controllers\AuthController::class , 'login']);

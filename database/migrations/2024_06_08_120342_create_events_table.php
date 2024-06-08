@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('durationhours');
             $table->string('address');
+            $table->string('address');
             $table->timestamps();
         });
     }

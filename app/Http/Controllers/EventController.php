@@ -24,6 +24,13 @@ class EventController extends Controller
         //
     }
 
+    public function validat(Event $event)
+    {
+        $event->isValid = true ;
+        $event->save();
+        return response()->json(['event'=>$event]);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
