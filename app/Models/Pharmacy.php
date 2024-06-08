@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class table1 extends Model
+class Pharmacy extends Model
 {
 
-    protected $fillable = ['att1' ,'name', 'att2' , 'att3' , 'att4'];
+    protected $fillable = ['name' ,'address', 'operationhours' , 'garde'];
     use HasFactory;
 }
