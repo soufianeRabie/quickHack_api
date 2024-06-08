@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\PharmacyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,14 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->group( function () {
-  Route::get('/me' , [\App\Http\Controllers\UserController::class , 'init']);
-    Route::get('initialize' , [\App\Http\Controllers\InitializeController::class , 'init']);
-    Route::resources([
-        'users'=>\App\Http\Controllers\UserController::class,
-        'pharmacies'=>\App\Http\Controllers\PharmacyController::class
-    ]);
+Route::middleware('auth:sanctum')->group(function () {
+  Route::get('/me', [\App\Http\Controllers\UserController::class, 'init']);
+  Route::get('initialize', [\App\Http\Controllers\InitializeController::class, 'init']);
+  Route::resources([
+    'users' => \App\Http\Controllers\UserController::class,
+    'pharmacies' => \App\Http\Controllers\PharmacyController::class,
+    'events' => EventController::class
+  ]);
 });
 
 
-Route::post('/login' , [\App\Http\Controllers\AuthController::class , 'login']);
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);

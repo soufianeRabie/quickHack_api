@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Event;
 use App\Models\Pharmacy;
 use App\Models\Role;
 use App\Models\User;
@@ -87,6 +88,6 @@ class DatabaseSeeder extends Seeder
         //     ],
         // ]);
         Pharmacy::factory(15)->create();
-
+Event::factory(10)->create();
     }
 }

@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Medicament;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
-class MedicamentController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $atts = Event::all();
+        return response()->json(['atts' => $atts]);
     }
 
     /**
@@ -28,13 +29,15 @@ class MedicamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $newAtts = Event::create($request->post());
+        return response()->json(['event' => $newAtts]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Medicament $medicament)
+    public function show(Event $event)
     {
         //
     }
@@ -42,7 +45,7 @@ class MedicamentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Medicament $medicament)
+    public function edit(Event $event)
     {
         //
     }
@@ -50,16 +53,23 @@ class MedicamentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Medicament $medicament)
+    public function update(Request $request, Event $event)
     {
-        //
+        $fillable = $request->post();
+        $event->fill($fillable);
+
+        $event->save();
+
+        return response()->json(['event' => $event]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Medicament $medicament)
+    public function destroy(Event $event)
     {
-        //
+        $event->delete();
+
+        return response()->json(true);
     }
 }
