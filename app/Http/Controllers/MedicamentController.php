@@ -12,7 +12,8 @@ class MedicamentController extends Controller
      */
     public function index()
     {
-        //
+        $medicaments = Medicament::all();
+        return response()->json(['medicaments'=>$medicaments]);
     }
 
     /**
@@ -28,7 +29,8 @@ class MedicamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newMed = Medicament::create($request->post());
+        return response()->json(['medicament' => $newMed]);
     }
 
     /**
@@ -52,7 +54,12 @@ class MedicamentController extends Controller
      */
     public function update(Request $request, Medicament $medicament)
     {
-        //
+        $fillable = $request->post();
+        $medicament->fill($fillable);
+
+        $medicament->save();
+
+        return response()->json(['medicament'=>$medicament]);
     }
 
     /**
@@ -60,6 +67,8 @@ class MedicamentController extends Controller
      */
     public function destroy(Medicament $medicament)
     {
-        //
+        $medicament->delete();
+
+        return response()->json(true);
     }
 }

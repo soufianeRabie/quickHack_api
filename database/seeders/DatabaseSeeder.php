@@ -30,53 +30,36 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        DB::table('table1s')->insert([
+        $medicaments = [
             [
-                'name' => 'Sample Name 1',
-                'att1' => 'Sample Attribute 1-1',
-                'att2' => 'Sample Attribute 1-2',
-                'att3' => 'Sample Attribute 1-3',
-                'att4' => 'Sample Attribute 1-4',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name' => 'Paracetamol',
+                'price' => 5.00,
+                'prescreption' => 'Take one tablet every 4-6 hours',
             ],
             [
-                'name' => 'Sample Name 2',
-                'att1' => 'Sample Attribute 2-1',
-                'att2' => 'Sample Attribute 2-2',
-                'att3' => 'Sample Attribute 2-3',
-                'att4' => 'Sample Attribute 2-4',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name' => 'Ibuprofen',
+                'price' => 8.50,
+                'prescreption' => 'Take one tablet every 6-8 hours with food',
             ],
             [
-                'name' => 'Sample Name 3',
-                'att1' => 'Sample Attribute 3-1',
-                'att2' => 'Sample Attribute 3-2',
-                'att3' => 'Sample Attribute 3-3',
-                'att4' => 'Sample Attribute 3-4',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name' => 'Amoxicillin',
+                'price' => 12.00,
+                'prescreption' => 'Take one capsule every 8 hours for 7 days',
             ],
             [
-                'name' => 'Sample Name 4',
-                'att1' => 'Sample Attribute 4-1',
-                'att2' => 'Sample Attribute 4-2',
-                'att3' => 'Sample Attribute 4-3',
-                'att4' => 'Sample Attribute 4-4',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name' => 'Loratadine',
+                'price' => 4.75,
+                'prescreption' => 'Take one tablet daily',
             ],
             [
-                'name' => 'Sample Name 5',
-                'att1' => 'Sample Attribute 5-1',
-                'att2' => 'Sample Attribute 5-2',
-                'att3' => 'Sample Attribute 5-3',
-                'att4' => 'Sample Attribute 5-4',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name' => 'Omeprazole',
+                'price' => 15.20,
+                'prescreption' => 'Take one capsule daily before breakfast',
             ],
-        ]);
+        ];
+
+        DB::table('medicaments')->insert($medicaments);
+
 
     }
 }
