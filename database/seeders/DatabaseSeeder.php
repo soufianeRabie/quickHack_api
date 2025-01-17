@@ -20,16 +20,27 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Role::create([
+            'name' => 'admin',
+
+        ]);
+         Role::create([
             'name' => 'engaged',
 
         ]);
 
        User::create([
-          'name'=>'engaged',
-           'email'=>'engaged@engaged.com',
-           'password'=>Hash::make('engaged'),
-           'role_id'=>2
+          'name'=>'admin',
+           'email'=>'admin@admin.com',
+           'password'=>Hash::make('admin'),
+           'role_id'=>1
        ]);
+
+       User::create([
+        'name'=>'engaged',
+         'email'=>'engaged@engaged.com',
+         'password'=>Hash::make('engaged'),
+         'role_id'=>2
+     ]);
 
         // \App\Models\User::factory(10)->create();
 
@@ -87,6 +98,6 @@ class DatabaseSeeder extends Seeder
         //         'updated_at' => now(),
         //     ],
         // ]);
-//        Pharmacy::factory(15)->create();
+    //    Pharmacy::factory(15)->create();
     }
 }
