@@ -19,15 +19,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::create([
-            'name' => 'engaged',
-
-        ]);
+//        Role::create([
+//            'name' => 'engaged',
+//
+//        ]);
 
        User::create([
-          'name'=>'engaged',
-           'email'=>'engaged@engaged.com',
-           'password'=>Hash::make('engaged'),
+          'name'=>'admin',
+           'email'=>'admin@gmail.com',
+           'password'=>Hash::make('admin@gmail.com'),
            'role_id'=>2
        ]);
 

@@ -29,7 +29,6 @@ class PharmacyController extends Controller
      */
     public function store(Request $request)
     {
-
         $newAtts = Pharmacy::create($request->post());
         return response()->json(['pharmacy'=>$newAtts]);
     }

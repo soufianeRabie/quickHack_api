@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id'
     ];
 
     public function role()
@@ -32,7 +33,7 @@ class User extends Authenticatable
     public function getRoleAttribute()
     {
         return $this->role()->first(
-            
+
         );
     }
     /**
