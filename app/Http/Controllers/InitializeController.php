@@ -15,9 +15,9 @@ class InitializeController extends Controller
     {
         $pharmacies = Pharmacy::all();
         $users = User::all();
-        $medicaments = Medicament::all();
+        // $medicaments = Medicament::all();
         $events = \App\Models\Event::all();
-        return response()->json(['events'=>$events ,'pharmacies' => $pharmacies, 'users' => $users , 'medicaments' =>$medicaments]);
+        return response()->json(['events'=>$events ,'pharmacies' => $pharmacies, 'users' => $users ]);
 
     }
 }
