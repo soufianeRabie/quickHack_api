@@ -19,7 +19,7 @@ class BudgetSeeder extends Seeder
         ]);
 
         // Insert data into 'lignes_budgetaire' table
-        DB::table('ligne_budgetaire')->insert([
+        DB::table('ligne_budgetaires')->insert([
             ['name' => 'Electricity', 'description' => 'Electricity bills for operations', 'expense_type' => 'Electricity', 'annual_budget' => 50000, 'spent_amount' => 35000, 'year' => 2025],
             ['name' => 'Water', 'description' => 'Water consumption for operations', 'expense_type' => 'Water', 'annual_budget' => 20000, 'spent_amount' => 12000, 'year' => 2025],
             ['name' => 'Materials', 'description' => 'Investment in new materials and supplies', 'expense_type' => 'Investment', 'annual_budget' => 70000, 'spent_amount' => 50000, 'year' => 2025],
@@ -28,7 +28,7 @@ class BudgetSeeder extends Seeder
         ]);
 
         // Insert data into 'dep_marche' table
-        DB::table('dep_marche')->insert([
+        DB::table('dep_marches')->insert([
             [
                 'ligne_budgetaire_id' => 1,
                 'expense_type' => 'CCF',

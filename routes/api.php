@@ -18,8 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->group( function () {
+
     Route::get('/ligne-budgetaires', [LigneBudgetaireController::class, 'index']);
-    Route::get('/ligne-budgetaires/{id}', [LigneBudgetaireController::class, 'show']);
+//    Route::get('/ligne-budgetaires/{id}', [LigneBudgetaireController::class, 'show']);
+
+//    Route::get('/ligne-budgetaire', [LigneBudgetaireController::class, 'index']);
+//    Route::get('/ligne-budgetaire/{id}', [LigneBudgetaireController::class, 'show']);
+    Route::post ('/ligne-budgetaire', [LigneBudgetaireController::class,'store'] );
+    Route::put ('/ligne-budgetaire/{id}', [LigneBudgetaireController::class,'update'] );
+    Route::delete ('/ligne-budgetaire/{id}', [LigneBudgetaireController::class,'destroy'] );
+
+
 
 // Routes for DepMarche
     Route::get('/dep-marches', [DepMarcheController::class, 'index']);
