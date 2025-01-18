@@ -37,6 +37,38 @@ class DepMarcheController extends Controller
         ], 200);
     }
 
+
+    public function store(Request $request)
+    {
+        // Assuming the request contains an array of data
+        $depMarchesData = $request->input('dep_marches'); // Get the array of depMarche data
+
+        $createdDepMarches = [];
+
+        foreach ($depMarchesData as $data) {
+            // Create each DepMarche entry
+            $depMarche = DepMarche::create([
+                'ligne_budgetaire_id' => $data['ligne_budgetaire_id'],
+                'expense_type' => $data['expense_type'],
+                'reference' => $data['reference'],
+                'amount' => $data['amount'],
+                'expense_date' => $data['expense_date'],
+                'start_date' => $data['start_date'],
+                'end_date' => $data['end_date'],
+                'payment_method' => $data['payment_method'],
+                'approval_date' => $data['approval_date'],
+                'status' => $data['status'] ?? 'pending',
+                'details' => $data['details'],
+            ]);
+
+            // Store the created DepMarche in the array
+            $createdDepMarches[] = $depMarche;
+        }
+
+        // Return success response with the created depMarches
+        return response()->json(['dep_marches' => $createdDepMarches], 201);
+    }
+
     /**
      * Get expenses filtered by criteria (date range, expense type, etc.).
      */

@@ -18,13 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->group( function () {
-    Route::get('/ligne-budgetaire', [LigneBudgetaireController::class, 'index']);
-    Route::get('/ligne-budgetaire/{id}', [LigneBudgetaireController::class, 'show']);
+    Route::get('/ligne-budgetaires', [LigneBudgetaireController::class, 'index']);
+    Route::get('/ligne-budgetaires/{id}', [LigneBudgetaireController::class, 'show']);
 
 // Routes for DepMarche
-    Route::get('/dep-marche', [DepMarcheController::class, 'index']);
-    Route::get('/dep-marche/{id}', [DepMarcheController::class, 'show']);
-    Route::post('/dep-marche/filter', [DepMarcheController::class, 'filter']);
+    Route::get('/dep-marches', [DepMarcheController::class, 'index']);
+    Route::post('/dep-marches', [DepMarcheController::class, 'store']);
+    Route::get('/dep-marches/{id}', [DepMarcheController::class, 'show']);
+    Route::post('/dep-marches/filter', [DepMarcheController::class, 'filter']);
 
 
   Route::get('/me' , [\App\Http\Controllers\UserController::class , 'init']);
