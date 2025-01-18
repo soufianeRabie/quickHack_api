@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group( function () {
     Route::get('/ligne-budgetaire', [LigneBudgetaireController::class, 'index']);
     Route::get('/ligne-budgetaire/{id}', [LigneBudgetaireController::class, 'show']);
+    Route::post ('/ligne-budgetaire', [LigneBudgetaireController::class,'store'] );
+    Route::put ('/ligne-budgetaire/{id}', [LigneBudgetaireController::class,'update'] );
+    Route::delete ('/ligne-budgetaire/{id}', [LigneBudgetaireController::class,'destroy'] );
+
 
 // Routes for DepMarche
     Route::get('/dep-marche', [DepMarcheController::class, 'index']);

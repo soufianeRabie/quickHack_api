@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\LigneBudgetaire;
 use Illuminate\Support\Facades\Route;
 
 /*
