@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DepMarcheController;
+use App\Http\Controllers\LigneBudgetaireController;
 use App\Http\Controllers\PharmacyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +18,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->group( function () {
+    Route::get('/ligne-budgetaire', [LigneBudgetaireController::class, 'index']);
+    Route::get('/ligne-budgetaire/{id}', [LigneBudgetaireController::class, 'show']);
+
+// Routes for DepMarche
+    Route::get('/dep-marche', [DepMarcheController::class, 'index']);
+    Route::get('/dep-marche/{id}', [DepMarcheController::class, 'show']);
+    Route::post('/dep-marche/filter', [DepMarcheController::class, 'filter']);
+
+
   Route::get('/me' , [\App\Http\Controllers\UserController::class , 'init']);
     Route::get('initialize' , [\App\Http\Controllers\InitializeController::class , 'init']);
     Route::put('/event/valid/{event}' , [\App\Http\Controllers\EventController::class , 'validat']);
