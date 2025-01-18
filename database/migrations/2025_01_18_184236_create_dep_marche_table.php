@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('dep_marches', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ligne_budgetaire_id')->constrained('ligne_budgetaire')->onDelete('cascade'); // Linked to budget line
+            $table->foreignId('ligne_budgetaire_id')->constrained('ligne_budgetaires')->onDelete('cascade'); // Linked to budget line
             $table->string('expense_type'); // E.g., CCF, CCV, Bon de Commande
             $table->string('reference')->unique(); // Expense reference
             $table->decimal('amount', 15, 2); // Expense amount
