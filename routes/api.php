@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DepMarcheController;
 use App\Http\Controllers\LigneBudgetaireController;
+use App\Http\Controllers\LigneBudgetairePlafondController;
 use App\Http\Controllers\PharmacyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group( function () {
 
-    Route::get('/ligne-budgetaires', [LigneBudgetaireController::class, 'index']);
+    Route::post('/lignes-budgetaires/{id}/plafonds', [LigneBudgetairePlafondController::class, 'store']);
+    Route::put('/ligne-budgetaires/{id}/plafonds', [LigneBudgetairePlafondController::class, 'update']);
+    Route::get('/ligne-budgetaires/{id}/plafonds', [LigneBudgetairePlafondController::class, 'index']);
+//    Route::get('/ligne-budgetaires', [LigneBudgetaireController::class, 'index']);
 //    Route::get('/ligne-budgetaires/{id}', [LigneBudgetaireController::class, 'show']);
 
 //    Route::get('/ligne-budgetaire', [LigneBudgetaireController::class, 'index']);

@@ -16,8 +16,8 @@ class InitializeController extends Controller
         $pharmacies = Pharmacy::all();
         $users = User::all();
         $events = \App\Models\Event::all();
-        $lignes_budgetaire = \App\Models\LigneBudgetaire::all();
-        $dep_marche = \App\Models\DepMarche::all();
+        $lignes_budgetaire = \App\Models\LigneBudgetaire::with('expenses')->get();
+        $dep_marche = \App\Models\DepMarche::with('budgetLine')->get();
         $expense_types = \App\Models\ExpenseType::all();
 
         return response()->json([

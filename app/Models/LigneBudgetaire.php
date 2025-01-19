@@ -17,4 +17,9 @@ class LigneBudgetaire extends Model
     {
         return $this->hasMany(DepMarche::class);
     }
+
+    public function plafonds()
+    {
+        return $this->hasMany(LigneBudgetairePlafond::class);
+    }
 }
