@@ -40,8 +40,12 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('/dep-marches/{id}', [DepMarcheController::class, 'show']);
     Route::post('/dep-marches/filter', [DepMarcheController::class, 'filter']);
 
+    Route::get('/getAnalysis' , [\App\Http\Controllers\LigneBudgetaireController::class , 'analyzeExpenses']);
+    Route::post('/ChatBot' , [\App\Http\Controllers\LigneBudgetaireController::class , 'handleChat']);
 
-  Route::get('/me' , [\App\Http\Controllers\UserController::class , 'init']);
+
+
+    Route::get('/me' , [\App\Http\Controllers\UserController::class , 'init']);
     Route::get('initialize' , [\App\Http\Controllers\InitializeController::class , 'init']);
     Route::put('/event/valid/{event}' , [\App\Http\Controllers\EventController::class , 'validat']);
     Route::resources([
